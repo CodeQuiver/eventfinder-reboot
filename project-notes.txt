@@ -1,0 +1,9 @@
+12/30 - 
+    1- completed full boilerplate setup including react app and successfully deployed that to heroku
+    per instructions here: https://github.com/nielsenjared/mern
+
+    2- no models or api communication files have yet been set up
+
+    3- next steps- chart program structure and next steps
+    
+    4- set up Eventbrite API call to be done on the back end
