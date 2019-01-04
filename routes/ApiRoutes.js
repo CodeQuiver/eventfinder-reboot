@@ -8,7 +8,7 @@ Others may be added later to expand program features, such as additional event s
 
 import axios from "axios"; //check if I need axios here or code it differently on the server-side
 
-// configuration - sets up .env file use - already on server so may not need here
+// configuration - sets up .env file use
 require("dotenv").config();
 
 // setting up keys file and accessing
