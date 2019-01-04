@@ -7,3 +7,9 @@
     3- next steps- chart program structure and next steps
     
     4- set up Eventbrite API call to be done on the back end
+
+
+
+    -side notes-
+    - need to fix my use of import to only import needed modules, not all of React to every file (there's a reason for the other syntax, see freecodecamp article on differences between import and require here
+    https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/es6/understand-the-differences-between-import-and-require)
