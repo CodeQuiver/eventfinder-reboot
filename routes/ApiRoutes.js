@@ -6,7 +6,9 @@ So far the APIs being called are: Eventbrite, DarkSky
 Others may be added later to expand program features, such as additional event search engines.
 */
 
-import axios from "axios"; //check if I need axios here or code it differently on the server-side
+import axios from "axios"; //axios is throwing an error, may be incorrect here
+//possible axios is not correct here, probably what I should use for client-side only
+// maybe use "request" npm package for this - sending server-side http requests - that is what was used in a previous project ("liri app")
 
 // configuration - sets up .env file use
 require("dotenv").config();
