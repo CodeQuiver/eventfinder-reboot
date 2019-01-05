@@ -20,3 +20,23 @@ const EVENTBRITEBASEURL = "https://www.eventbriteapi.com/v3/events/search/?";
 const EVENTBRITEAPIKEY = keys.eventbrite.apikey;
 
 const WEATHAPIKEY = keys.darksky.apikey;
+
+
+// VARIABLES FOR WEATHER - required formats
+    // Latitude - in decimal degrees. Positive is north, negative is south.
+    // Longitude - in decimal degrees. Positive is east, negative is west.
+    // DateTime - Either a UNIX time (that is, seconds since midnight GMT on 1 Jan 1970) or a string formatted as follows: [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS]
+
+export default {
+//WEATHER SEARCH
+weatherSearch: function(latitude, longitude, dateTime) {
+    //DARKSKY weather API call goes here
+    const weatherQueryURL = "https://api.darksky.net/forecast/" + WEATHAPIKEY + "/" + latitude + "," + longitude + "," + dateTime + "?exclude=currently,minutely,flags";
+    console.log("DARKSKY QUERY URL: " + weatherQueryURL);
+
+    return axios.get(weatherQueryURL);
+}
+
+
+
+};
