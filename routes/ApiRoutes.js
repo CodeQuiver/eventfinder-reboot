@@ -6,8 +6,7 @@ So far the APIs being called are: Eventbrite, DarkSky
 Others may be added later to expand program features, such as additional event search engines.
 */
 
-// setting up all node packages
-let request = require('request');
+
 
 // import axios from "axios"; //axios is throwing an error, may be incorrect here
 //possible axios is not correct here, probably what I should use for client-side only
@@ -15,6 +14,9 @@ let request = require('request');
 
 // configuration - sets up .env file use
 require("dotenv").config();
+
+// setting up all node packages
+let request = require('request');
 
 // setting up keys file and accessing
 let keys = require("../config/keys.js");
@@ -53,3 +55,4 @@ const weatherSearch = function(latitude, longitude, dateTime) {
     }
 });
 };
+

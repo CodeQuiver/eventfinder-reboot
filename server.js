@@ -30,4 +30,6 @@ if (process.env.NODE_ENV === "production") {
     console.log(darkSkyTest);
 
 const PORT = process.env.PORT || 3001;
+
+console.log('hello world');
 app.listen(PORT);
