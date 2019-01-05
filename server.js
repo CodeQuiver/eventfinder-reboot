@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === "production") {
     //note the time used is the unix-converted date for Sunday, January 20, 2019 4:26:51 PM
     let darkSkyTest = weatherSearch(38.9072, 77.0369, 1548001611);
 
-    console.log(JSON.stringify(darkSkyTest));
+    console.log(darkSkyTest);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT);

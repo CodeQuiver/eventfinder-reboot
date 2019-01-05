@@ -6,7 +6,9 @@ So far the APIs being called are: Eventbrite, DarkSky
 Others may be added later to expand program features, such as additional event search engines.
 */
 
-import axios from "axios"; //axios is throwing an error, may be incorrect here
+import request from 'request';
+
+// import axios from "axios"; //axios is throwing an error, may be incorrect here
 //possible axios is not correct here, probably what I should use for client-side only
 // maybe use "request" npm package for this - sending server-side http requests - that is what was used in a previous project ("liri app")
 
@@ -32,11 +34,26 @@ const WEATHAPIKEY = keys.darksky.apikey;
 export default {
 //WEATHER SEARCH
 weatherSearch: function(latitude, longitude, dateTime) {
-    //DARKSKY weather API call goes here
+    // CONSTRUCT QUERY URL
     const weatherQueryURL = "https://api.darksky.net/forecast/" + WEATHAPIKEY + "/" + latitude + "," + longitude + "," + dateTime + "?exclude=currently,minutely,flags";
+
     console.log("DARKSKY QUERY URL: " + weatherQueryURL);
 
-    return axios.get(weatherQueryURL);
+    // SEND API REQUEST TO DARKSKY USING 'request'
+        // format - request(queryURL, callback);
+
+    request(weatherQueryURL, function(error, response, body) {
+
+        // If the request is successful (i.e. if the response status code is 200)
+        if (!error && response.statusCode === 200) {
+
+            // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
+            prettyWeather = JSON.parse(body); //sets the variable to the pretty-print JSON object so before passing it
+            console.log(prettyWeather); // calls the printing function using the pretty-print JSON console.log
+    }
+});
+
+    // return axios.get(weatherQueryURL); // replace this section with correct "request" package syntax
 }
 
 
