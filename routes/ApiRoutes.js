@@ -6,7 +6,8 @@ So far the APIs being called are: Eventbrite, DarkSky
 Others may be added later to expand program features, such as additional event search engines.
 */
 
-import request from 'request';
+// setting up all node packages
+let request = require('request');
 
 // import axios from "axios"; //axios is throwing an error, may be incorrect here
 //possible axios is not correct here, probably what I should use for client-side only
@@ -16,8 +17,7 @@ import request from 'request';
 require("dotenv").config();
 
 // setting up keys file and accessing
-var keys = require("../config/keys.js");
-
+let keys = require("../config/keys.js");
 // keys can be referenced as follows (using spotify example) "keys.spotify.secret" referencing the keys.js file
 
 const EVENTBRITEBASEURL = "https://www.eventbriteapi.com/v3/events/search/?";
@@ -31,9 +31,9 @@ const WEATHAPIKEY = keys.darksky.apikey;
     // Longitude - in decimal degrees. Positive is east, negative is west.
     // DateTime - Either a UNIX time (that is, seconds since midnight GMT on 1 Jan 1970) or a string formatted as follows: [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS]
 
-export default {
+
 //WEATHER SEARCH
-weatherSearch: function(latitude, longitude, dateTime) {
+const weatherSearch = function(latitude, longitude, dateTime) {
     // CONSTRUCT QUERY URL
     const weatherQueryURL = "https://api.darksky.net/forecast/" + WEATHAPIKEY + "/" + latitude + "," + longitude + "," + dateTime + "?exclude=currently,minutely,flags";
 
@@ -52,10 +52,4 @@ weatherSearch: function(latitude, longitude, dateTime) {
             console.log(prettyWeather); // calls the printing function using the pretty-print JSON console.log
     }
 });
-
-    // return axios.get(weatherQueryURL); // replace this section with correct "request" package syntax
-}
-
-
-
 };
