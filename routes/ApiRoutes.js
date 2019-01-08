@@ -7,15 +7,11 @@ Others may be added later to expand program features, such as additional event s
 */
 
 
-
-// import axios from "axios"; //axios is throwing an error, may be incorrect here
-//possible axios is not correct here, probably what I should use for client-side only
-// maybe use "request" npm package for this - sending server-side http requests - that is what was used in a previous project ("liri app")
-
 // configuration - sets up .env file use
 require("dotenv").config();
 
 // setting up all node packages
+    //request- for http requests
 let request = require('request');
 
 // setting up keys file and accessing
