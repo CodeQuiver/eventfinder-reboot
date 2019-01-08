@@ -3,7 +3,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-require("./routes/ApiRoutes.js");
+
+const APIROUTES = require('./routes/ApiRoutes.js');//importing API call functions
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/mern",
@@ -24,9 +25,11 @@ if (process.env.NODE_ENV === "production") {
 
 //TEST COMMAND
     //note the time used is the unix-converted date for Sunday, January 20, 2019 4:26:51 PM
-    let darkSkyTest = weatherSearch(38.9072, 77.0369, 1548001611);
+    let darkSkyTest = APIROUTES.weatherSearch(38.9072, 77.0369, 1548001611);
 
     console.log(darkSkyTest);
 
 const PORT = process.env.PORT || 3001;
+
+console.log('hello world');
 app.listen(PORT);
