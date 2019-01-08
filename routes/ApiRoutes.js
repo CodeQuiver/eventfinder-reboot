@@ -78,8 +78,8 @@ module.exports = {
     
         // Build the Eventbrite api query using the received parameters from the form as the inputs
         const eventBriteQueryURL = EVENTBRITEBASEURL + "location.address=" + location + "&expand=organizer,ticket_availability,venue,logo&token=" + EVENTBRITEAPIKEY + "&page=1&sort_by=" + sorting + "&categories=" + category + "&start_date.keyword=" + date + "&price=" + price + "&q=" + keyword + "&include_unavailable_events=false";
-        
-        console.log("EVENTBRITE QUERY URL: " + queryURL);
+
+        console.log("EVENTBRITE QUERY URL: " + eventBriteQueryURL);
     
         // Send API request to EventBrite using 'request'
         request(eventBriteQueryURL, function(error, response, body) {
