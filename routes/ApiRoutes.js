@@ -35,24 +35,28 @@ const WEATHAPIKEY = keys.darksky.apikey;
 
 
 //WEATHER SEARCH
-const weatherSearch = function(latitude, longitude, dateTime) {
-    // CONSTRUCT QUERY URL
-    const weatherQueryURL = "https://api.darksky.net/forecast/" + WEATHAPIKEY + "/" + latitude + "," + longitude + "," + dateTime + "?exclude=currently,minutely,flags";
-
-    console.log("DARKSKY QUERY URL: " + weatherQueryURL);
-
-    // SEND API REQUEST TO DARKSKY USING 'request'
-        // format - request(queryURL, callback);
-
-    request(weatherQueryURL, function(error, response, body) {
-
-        // If the request is successful (i.e. if the response status code is 200)
-        if (!error && response.statusCode === 200) {
-
-            // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
-            prettyWeather = JSON.parse(body); //sets the variable to the pretty-print JSON object so before passing it
-            console.log(prettyWeather); // calls the printing function using the pretty-print JSON console.log
+module.exports = {
+    weatherSearch : function(latitude, longitude, dateTime) {
+        // CONSTRUCT QUERY URL
+        const weatherQueryURL = "https://api.darksky.net/forecast/" + WEATHAPIKEY + "/" + latitude + "," + longitude + "," + dateTime + "?exclude=daily,hourly,minutely,flags";
+            //value we want is "currently" (as opposed to daily, hourly, minutely), which in this usage refers to the time provided
+    
+        console.log("DARKSKY QUERY URL: " + weatherQueryURL);
+    
+        // SEND API REQUEST TO DARKSKY USING 'request'
+            // format - request(queryURL, callback);
+    
+        request(weatherQueryURL, function(error, response, body) {
+    
+            // If the request is successful (i.e. if the response status code is 200)
+            if (!error && response.statusCode === 200) {
+    
+                // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
+                prettyWeather = JSON.parse(body); //sets the variable to the pretty-print JSON object so before passing it
+                console.log(prettyWeather); // calls the printing function using the pretty-print JSON console.log
+            }
+        });
     }
-});
-};
+}
+
 
