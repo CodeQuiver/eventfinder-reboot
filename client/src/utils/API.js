@@ -1,1 +1,11 @@
-import axios from "axios";
+// import axios from "axios";
+
+//WEATHER API REQUEST - GET
+
+//END WEATHER API REQUEST - GET
+
+
+
+//EVENT API REQUEST - GET
+
+//END EVENT API REQUEST - GET
