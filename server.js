@@ -23,11 +23,22 @@ if (process.env.NODE_ENV === "production") {
     });
   }
 
-//TEST COMMAND
+//TEST COMMANDS //
+/* for development only, direct test commands from server to other files.
+These commands will come from client-side in completed project.*/
+
+  //WEATHER API TEST
     //note the time used is the unix-converted date for Sunday, January 20, 2019 4:26:51 PM
     let darkSkyTest = APIROUTES.weatherSearch(38.9072, 77.0369, 1548001611);
-
     console.log(darkSkyTest);
+  //END WEATHER API TEST
+
+  //EVENTBRITE API TEST
+    let eventBriteTest = APIROUTES.eventSearch();//TODO- fill in test values here
+    console.log(eventBriteTest);
+  //END EVENTBRITE API TEST
+
+//END TEST COMMANDS
 
 const PORT = process.env.PORT || 3001;
 
