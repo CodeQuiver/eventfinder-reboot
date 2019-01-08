@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 
-const APIROUTES = require('./routes/ApiRoutes.js');//importing API call functions
+const APIROUTES = require('./routes/ApiRoutes.js');//importing API call functions for TEST section
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/mern",
