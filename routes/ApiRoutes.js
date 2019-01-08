@@ -41,7 +41,7 @@ module.exports = {
         const weatherQueryURL = "https://api.darksky.net/forecast/" + WEATHAPIKEY + "/" + latitude + "," + longitude + "," + dateTime + "?exclude=daily,hourly,minutely,flags";
             //value we want is "currently" (as opposed to daily, hourly, minutely), which in this usage refers to the time provided
     
-        console.log("DARKSKY QUERY URL: " + weatherQueryURL);
+        // console.log("DARKSKY QUERY URL: " + weatherQueryURL);
     
         // SEND API REQUEST TO DARKSKY USING 'request'
             // format - request(queryURL, callback);
@@ -56,7 +56,41 @@ module.exports = {
                 console.log(prettyWeather); // calls the printing function using the pretty-print JSON console.log
             }
         });
+    },
+    // END WEATHER SEARCH
+
+    // BEGIN EVENT SEARCH
+    eventSearch: function(zip, city, state, sorting, category, date, price, keyword) {
+        let location = "";
+    
+        // sort_by=distance&location.address=Arlington%2C+VA
+        // or sort by "best"
+        console.log("API.eventSearch: city  = " + city.toString());
+        console.log("API.eventSearch: state = " + state.toString());
+        if (zip) {
+          location = zip;
+        } else if (city && state) {
+          location = city + "%2C+" + state;
+        } else {
+          // TODO - Make this better
+          console.log("Please add a location and try your search again.");
+        } 
+    
+        // Build the Eventbrite api query using the received parameters from the form as the inputs
+        const eventBriteQueryURL = EVENTBRITEBASEURL + "location.address=" + location + "&expand=organizer,ticket_availability,venue,logo&token=" + EVENTBRITEAPIKEY + "&page=1&sort_by=" + sorting + "&categories=" + category + "&start_date.keyword=" + date + "&price=" + price + "&q=" + keyword + "&include_unavailable_events=false";
+        console.log("EVENTBRITE QUERY URL: " + queryURL);
+    
+        // Send API request to EventBrite using 'request'
+        request(eventBriteQueryURL, function(error, response, body) {
+    
+            // If the request is successful (i.e. if the response status code is 200)
+            if (!error && response.statusCode === 200) {
+    
+                // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
+                prettyEvent = JSON.parse(body); //sets the variable to the pretty-print JSON object so before passing it
+                console.log(prettyEvent); // calls the printing function using the pretty-print JSON console.log
+            }
+        });
     }
+    // END EVENT SEARCH
 }
-
-
