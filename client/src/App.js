@@ -8,8 +8,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1>Coming Soon - User Interface!</h1>
+          
           <p>
+          <h1>Coming Soon - User Interface!</h1>
             Work-in-progress. Completing back-end functionality first.<br />
             Thank you for visiting!
           </p>
