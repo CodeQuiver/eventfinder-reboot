@@ -3,9 +3,11 @@ import axios from "axios";
 //TEST GET
 export default {
     eventSearch: function() {
-      return axios.get(
+        let printMe = axios.get(
           "/api/search"
-      )
+          );
+
+      console.log(printMe);
     }
 };
 // END TEST GET
