@@ -32,9 +32,19 @@ const WEATHAPIKEY = keys.darksky.apikey;
     // Longitude - in decimal degrees. Positive is east, negative is west.
     // DateTime - Either a UNIX time (that is, seconds since midnight GMT on 1 Jan 1970) or a string formatted as follows: [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS]
 
+//TESTING ROUTING
+router.get("/search", 
+    ()=>{
+        return "Hello World"
+    }
+);
 
-//WEATHER SEARCH
+
+
 module.exports = {
+    //export router defined above
+    router,
+    //WEATHER SEARCH
     weatherSearch : function(latitude, longitude, dateTime) {
         // CONSTRUCT QUERY URL
         const weatherQueryURL = "https://api.darksky.net/forecast/" + WEATHAPIKEY + "/" + latitude + "," + longitude + "," + dateTime + "?exclude=daily,hourly,minutely,flags";
