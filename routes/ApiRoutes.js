@@ -7,14 +7,17 @@ Others may be added later to expand program features, such as additional event s
 */
 
 
-// configuration - sets up .env file use
+//== configuration - sets up .env file use ==//
 require("dotenv").config();
 
-// setting up all node packages
-    //request- for http requests
-let request = require('request');
+//== setting up node packages ==//
+//router - sets up express routing
+const router = require("express").Router();
+//request- will be used for http requests to third-party APIs
+const request = require('request');
 
-// setting up keys file and accessing
+
+//== setting up keys file and accessing ==//
 let keys = require("../config/keys.js");
 // keys can be referenced as follows (using spotify example) "keys.spotify.secret" referencing the keys.js file
 

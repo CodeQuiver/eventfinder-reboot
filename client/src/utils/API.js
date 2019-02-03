@@ -1,8 +1,15 @@
-// import axios from "axios";
+import axios from "axios";
 
-//WEATHER API REQUEST - GET
+//TEST GET
+export default {
+    eventSearch: function() {
+      return axios.get(
+          "/api/search"
+      )
+    }
+};
+// END TEST GET
 
-//END WEATHER API REQUEST - GET
 
 
 
