@@ -24,7 +24,10 @@ if (process.env.NODE_ENV === "production") {
   }
 
 //all instances of app should use apiRoutes file for data routing
-app.use("/api", ApiRoutes);
+//ApiRoutes.js exports multiple items: router, weatherSearch
+//Since app.use expects a router object as its second argument, 
+// The developer needs to specify the router subobject within ApiRoutes.js' exports.
+app.use("/api", ApiRoutes.router);
 
 //TEST COMMANDS //
 /* for development only, direct test commands from server to other files.*/
