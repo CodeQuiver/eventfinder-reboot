@@ -1,15 +1,13 @@
 import axios from "axios";
 
 //TEST GET
-export default {
-    eventSearch: function() {
+const eventSearch = function() {
         let printMe = axios.get("/api/search");
         console.log(printMe);
     }
-};
 // END TEST GET
 
-
+export {eventSearch}
 
 
 //EVENT API REQUEST - GET
