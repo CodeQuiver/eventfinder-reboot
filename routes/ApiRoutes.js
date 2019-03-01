@@ -34,11 +34,13 @@ const WEATHAPIKEY = keys.darksky.apikey;
 
 //TESTING ROUTING
 router.get("/search", 
-    ()=>{
-        return "Hello World"
+    function() {
+        return "Hello World";
     }
 );
-
+    /* note on testing 2/28/19- changed anonymous function from function expression using "()=>" to simple
+     "function()" to see if odd test result where I was getting a console log of an object prototype
+     might have been caused by the entire expression being passed instead of the more usual callback syntax*/
 
 
 module.exports = {
